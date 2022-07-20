@@ -8,6 +8,8 @@ rxdart
 get_it
 freezed
 build_runner
+hive
+uuid
 ```
 
 ## Dependency Download
