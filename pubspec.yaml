@@ -36,8 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   get_it: null
   freezed_annotation: null
+  hive: null
   json_annotation: null
   rxdart: null
+  uuid: null
 
 dev_dependencies:
   flutter_test:
