@@ -20,10 +20,10 @@ RoutineModel _$RoutineModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RoutineModel {
-  int get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String get dueTime => throw _privateConstructorUsedError;
+  String get frequency => throw _privateConstructorUsedError;
   bool get checked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,10 +38,10 @@ abstract class $RoutineModelCopyWith<$Res> {
           RoutineModel value, $Res Function(RoutineModel) then) =
       _$RoutineModelCopyWithImpl<$Res>;
   $Res call(
-      {int id,
+      {String? id,
       String title,
       String? description,
-      String dueTime,
+      String frequency,
       bool checked});
 }
 
@@ -58,14 +58,14 @@ class _$RoutineModelCopyWithImpl<$Res> implements $RoutineModelCopyWith<$Res> {
     Object? id = freezed,
     Object? title = freezed,
     Object? description = freezed,
-    Object? dueTime = freezed,
+    Object? frequency = freezed,
     Object? checked = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -74,9 +74,9 @@ class _$RoutineModelCopyWithImpl<$Res> implements $RoutineModelCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      dueTime: dueTime == freezed
-          ? _value.dueTime
-          : dueTime // ignore: cast_nullable_to_non_nullable
+      frequency: frequency == freezed
+          ? _value.frequency
+          : frequency // ignore: cast_nullable_to_non_nullable
               as String,
       checked: checked == freezed
           ? _value.checked
@@ -94,10 +94,10 @@ abstract class _$$_RoutineModelCopyWith<$Res>
       __$$_RoutineModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
+      {String? id,
       String title,
       String? description,
-      String dueTime,
+      String frequency,
       bool checked});
 }
 
@@ -117,14 +117,14 @@ class __$$_RoutineModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? description = freezed,
-    Object? dueTime = freezed,
+    Object? frequency = freezed,
     Object? checked = freezed,
   }) {
     return _then(_$_RoutineModel(
       id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -133,9 +133,9 @@ class __$$_RoutineModelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      dueTime == freezed
-          ? _value.dueTime
-          : dueTime // ignore: cast_nullable_to_non_nullable
+      frequency == freezed
+          ? _value.frequency
+          : frequency // ignore: cast_nullable_to_non_nullable
               as String,
       checked == freezed
           ? _value.checked
@@ -149,25 +149,25 @@ class __$$_RoutineModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RoutineModel implements _RoutineModel {
   _$_RoutineModel(
-      this.id, this.title, this.description, this.dueTime, this.checked);
+      this.id, this.title, this.description, this.frequency, this.checked);
 
   factory _$_RoutineModel.fromJson(Map<String, dynamic> json) =>
       _$$_RoutineModelFromJson(json);
 
   @override
-  final int id;
+  final String? id;
   @override
   final String title;
   @override
   final String? description;
   @override
-  final String dueTime;
+  final String frequency;
   @override
   final bool checked;
 
   @override
   String toString() {
-    return 'RoutineModel(id: $id, title: $title, description: $description, dueTime: $dueTime, checked: $checked)';
+    return 'RoutineModel(id: $id, title: $title, description: $description, frequency: $frequency, checked: $checked)';
   }
 
   @override
@@ -179,7 +179,7 @@ class _$_RoutineModel implements _RoutineModel {
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.dueTime, dueTime) &&
+            const DeepCollectionEquality().equals(other.frequency, frequency) &&
             const DeepCollectionEquality().equals(other.checked, checked));
   }
 
@@ -190,7 +190,7 @@ class _$_RoutineModel implements _RoutineModel {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(dueTime),
+      const DeepCollectionEquality().hash(frequency),
       const DeepCollectionEquality().hash(checked));
 
   @JsonKey(ignore: true)
@@ -206,23 +206,23 @@ class _$_RoutineModel implements _RoutineModel {
 
 abstract class _RoutineModel implements RoutineModel {
   factory _RoutineModel(
-      final int id,
+      final String? id,
       final String title,
       final String? description,
-      final String dueTime,
+      final String frequency,
       final bool checked) = _$_RoutineModel;
 
   factory _RoutineModel.fromJson(Map<String, dynamic> json) =
       _$_RoutineModel.fromJson;
 
   @override
-  int get id;
+  String? get id;
   @override
   String get title;
   @override
   String? get description;
   @override
-  String get dueTime;
+  String get frequency;
   @override
   bool get checked;
   @override

@@ -38,8 +38,10 @@ dependencies:
   freezed_annotation: null
   hive: null
   json_annotation: null
+  path_provider: null
   rxdart: null
   uuid: null
+#  workmanager: null
 
 dev_dependencies:
   flutter_test:

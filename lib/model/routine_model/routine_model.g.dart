@@ -8,10 +8,10 @@ part of 'routine_model.dart';
 
 _$_RoutineModel _$$_RoutineModelFromJson(Map<String, dynamic> json) =>
     _$_RoutineModel(
-      json['id'] as int,
+      json['id'] as String?,
       json['title'] as String,
       json['description'] as String?,
-      json['dueTime'] as String,
+      json['frequency'] as String,
       json['checked'] as bool,
     );
 
@@ -20,6 +20,6 @@ Map<String, dynamic> _$$_RoutineModelToJson(_$_RoutineModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
-      'dueTime': instance.dueTime,
+      'frequency': instance.frequency,
       'checked': instance.checked,
     };
