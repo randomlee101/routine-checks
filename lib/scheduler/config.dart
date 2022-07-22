@@ -50,13 +50,13 @@ class SchedulerConfig {
 
   static reminder(String id) async
   {
-    var routine = RoutineModel.fromJson(Map<String, dynamic>.from(await RoutineRepository.findRoutine(key: id)));
-    print("Upcoming Routine In Five Minutes: ${routine.title}");
+    // var routine = RoutineModel.fromJson(Map<String, dynamic>.from(await RoutineRepository.findRoutine(key: id)));
+    print("Upcoming Routine In Five Minutes: $id");
   }
 
   static actualWork(String id) async
   {
-    var routine = RoutineModel.fromJson(Map<String, dynamic>.from(await RoutineRepository.findRoutine(key: id)));
-    print("It is time to get to your ${routine.title} routine. Hurry up, it will be marked as miss if not checked in 5 minutes");
+    // var routine = RoutineModel.fromJson(Map<String, dynamic>.from(await RoutineRepository.findRoutine(key: id)));
+    print("It is time to get to your $id routine. Hurry up, it will be marked as miss if not checked in 5 minutes");
   }
 }
