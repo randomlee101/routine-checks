@@ -41,7 +41,7 @@ dependencies:
   path_provider: null
   rxdart: null
   uuid: null
-#  workmanager: null
+  workmanager: ^0.5.0-dev.8
 
 dev_dependencies:
   flutter_test:

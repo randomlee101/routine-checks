@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:hive/hive.dart';
 import 'package:routine_checks/logic/logic.dart';
 import 'package:routine_checks/model/model.dart';
+import 'package:routine_checks/scheduler/config.dart';
 import 'package:routine_checks/service_locator.dart';
 import 'package:uuid/uuid.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,14 +31,15 @@ class RoutineRepository {
     _routineLogicBLoC.addAllRoutines( ((await routines?.getAllValues())?.cast().values.map((e) => RoutineModel.fromJson(Map<String, dynamic>.from(e))).toList() ?? []));
   }
 
-  findRoutine({String? key}) async {
+  static findRoutine({String? key}) async {
     return await routines?.get(key!);
   }
 
   addRoutine({RoutineModel? routineModel}) async {
     String id = uuid.v1();
     await routines?.put(id, routineModel!.copyWith(id: id).toJson());
-    await findRoutines();
+    SchedulerConfig.setReminder(id, routineModel!.frequency);
+    SchedulerConfig.doActualWork(id, routineModel.frequency);
   }
 
   deleteRoutine({String? key}) async {

@@ -10,33 +10,49 @@ class ListAllRoutines extends StatelessWidget {
 
   final RoutineRepository routineRepository = locator.get<RoutineRepository>();
   final RoutineLogicBLoC routineLogicBLoC = locator.get<RoutineLogicBLoC>();
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
-     print("ffs");
       await routineRepository.findRoutines();
     });
     return Scaffold(
       appBar: AppBar(
         title: const Text("All Routines"),
         actions: [
-          IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => AddNewRoutine()));
-          }, icon: const Icon(Icons.add))
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddNewRoutine()));
+              },
+              icon: const Icon(Icons.add))
         ],
       ),
       body: StreamBuilder(
-        stream: routineLogicBLoC.allRoutines,
-        builder: (context, snapshot) {
-          List<RoutineModel> allRoutines = snapshot.data as List<RoutineModel>;
-          print("All Routines $allRoutines");
-          return SingleChildScrollView(
-            child: Column(
-              children: allRoutines.map((e) => CheckboxListTile(value: e.checked,onChanged: (f) {routineRepository.updateRoutine(key: e.id, routineModel: e.copyWith(checked: f!));},title: Text(e.title), subtitle: Text(e.description ?? "", maxLines: 2, overflow: TextOverflow.ellipsis),)).toList(),
-            ),
-          );
-        }
-      ),
+          stream: routineLogicBLoC.allRoutines,
+          builder: (context, snapshot) {
+            List<RoutineModel> allRoutines =
+                snapshot.data as List<RoutineModel>;
+
+            return SingleChildScrollView(
+              child: Column(
+                children: allRoutines
+                    .map((e) => CheckboxListTile(
+                          value: e.checked,
+                          onChanged: (f) {
+                            routineRepository.updateRoutine(
+                                key: e.id,
+                                routineModel: e.copyWith(checked: f!));
+
+                          },
+                          title: Text(e.title),
+                          subtitle: Text(e.description ?? "",
+                              maxLines: 2, overflow: TextOverflow.ellipsis),
+                        ))
+                    .toList(),
+              ),
+            );
+          }),
     );
   }
 }
